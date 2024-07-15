@@ -33,6 +33,6 @@ mvn fmt:format
 To format XML files (mainly pom.xml):
 
 ```
-mvn au.com.acegi:xml-format-maven-plugin:3.1.1:xml-format
+mvn au.com.acegi:xml-format-maven-plugin:3.2.1:xml-format
 ```
   
