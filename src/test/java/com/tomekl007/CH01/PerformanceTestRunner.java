@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PerformanceTestRunner {
   public static void main(String[] args) throws Exception {
@@ -13,12 +15,14 @@ public class PerformanceTestRunner {
     new Runner(opt).run();
   }
 
+  private static final Logger logger = LoggerFactory.getLogger(PerformanceTestRunner.class);
+
   @Test
-  void swallowException() {
+  void useLoggerToPropagateExceptionInfo() {
     try {
       new PerformanceTestRunner().main(null);
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error("Problem when check ", e);
     }
   }
 }
